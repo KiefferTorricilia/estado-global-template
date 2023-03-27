@@ -3,11 +3,15 @@ import { useNavigate } from "react-router-dom";
 import CardCarrinho from "../components/CardCarrinho";
 import { handleHome } from "../Router/cordinator";
 import styled from "styled-components";
-export default function Carrinho(props) {
-  const navigate = useNavigate();
+
+
+export default function Carrinho({carrinho, setCarrinho}) {
+  const navigate = useNavigate()
+
+  console.log(carrinho)
 
   let preçoTotal = 0;
-//   carrinho.map((item) => (preçoTotal = preçoTotal + item.price * item.amount));
+  carrinho.map((item) => (preçoTotal = preçoTotal + item.price * item.amount));
 
   function remover(id) {
     // const fruta = carrinho && carrinho.find((item) => item.id === id);
@@ -34,7 +38,12 @@ export default function Carrinho(props) {
     <CarrinhoContainer>
       <h1 id="cart">Carrinho <span role="img" aria-label="cart">🛒 </span></h1>
       <button onClick={() => handleHome(navigate)}>Voltar</button>
-      <CardCarrinho/>
+
+      {carrinho.map((item) => {
+        <CardCarrinho/>
+      })}
+
+
       <h3>Preço Total: R$ {preçoTotal}</h3>
     </CarrinhoContainer>
   );

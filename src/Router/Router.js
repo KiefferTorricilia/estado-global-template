@@ -4,6 +4,7 @@ import Mercadinho from "../Pages/Mercadinho";
 import Carrinho from "../Pages/Carrinho";
 export default function Router() {
     
+    const [carrinho, setCarrinho] = useState([]);
 
 
     return (
@@ -11,11 +12,11 @@ export default function Router() {
             <Routes>
                 <Route
                     path="/"
-                    element={<Mercadinho/>}
+                    element={<Mercadinho carrinho={carrinho} setCarrinho={setCarrinho} />}
                 />
                 <Route
                     path="/cart"
-                    element={<Carrinho/>}
+                    element={<Carrinho carrinho={carrinho} setCarrinho={setCarrinho}   />}
                 />
 
 

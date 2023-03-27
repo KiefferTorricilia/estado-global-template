@@ -18,7 +18,7 @@ export default function CardCarrinho({
       <p>
         Qtd <b>{1}</b>
       </p>
-      <p>R${10}</p>
+      <p>R${price}</p>
       <DeleteButton>x</DeleteButton>
     </CardContainer>
   );
